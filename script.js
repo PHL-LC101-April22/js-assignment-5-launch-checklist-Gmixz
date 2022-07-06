@@ -116,7 +116,7 @@ function isFuelValid(fuel)
 
 function isCargoValid(cargo)
 {
-    return cargo < 10000;
+    return cargo < 10000; 
 }
 
 async function myFetch() {
