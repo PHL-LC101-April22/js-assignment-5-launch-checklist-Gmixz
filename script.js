@@ -29,7 +29,7 @@ function validateInput(testInput, checkForNumbersOnly = false) {
     
     if(testInput === '')
     {  
-        alert('Empty');
+        // alert('Empty');
         return false;
     }
 
@@ -37,7 +37,7 @@ function validateInput(testInput, checkForNumbersOnly = false) {
     {
         if (isNaN(testInput))
         {
-            alert('Not a Number');
+            // alert('Not a Number');
             return false;
         }
     }
@@ -45,7 +45,7 @@ function validateInput(testInput, checkForNumbersOnly = false) {
     {
         if (testInput.match(numbersOnlyRegex))
         {
-            alert('Is a number');
+            // alert('Is a number');
             return false;
         }
     }
@@ -67,9 +67,14 @@ function formSubmission(e) {
         document.getElementById('pilotStatus').text = `${document.myForm.pilotName.value} is Ready`;
         document.getElementById('copilotStatus').text = `${document.myForm.copilotName.value} is Ready`;
     }
+    else if((isPilotNameValid && !isCopilotNameValid && isCargoMassValid && !isFuelLevelValid) || (!isPilotNameValid && isCopilotNameValid && !isCargoMassValid && isFuelLevelValid ))
+    {
+        alert('Make sure to enter valid information for each field!')
+        return;
+    }
     else
     {
-        alert('Data is missing from the form or is invalid.')
+        alert('All fields are required!.')
         return;
     }
 
@@ -77,10 +82,10 @@ function formSubmission(e) {
 
     if (!isFuelValid(document.myForm.fuelLevel.value))
     {
-        document.getElementById('launchStatus').textContent = 'Shuttle NOT Ready for Launch';
+        document.getElementById('launchStatus').textContent = 'Shuttle not ready for launch';
         document.getElementById('launchStatus').style.color = 'red';
-        document.getElementById('fuelStatus').textContent = `Not Enough Fuel`;
-        document.getElementById('fuelStatus').style.color = 'red';
+        document.getElementById('fuelStatus').textContent = `Fuel level too low for launch`;
+        // document.getElementById('fuelStatus').style.color = 'red';
         return;
         
     }
@@ -92,10 +97,10 @@ function formSubmission(e) {
 
     if (!isCargoValid(document.myForm.cargoMass.value))
     {
-        document.getElementById('launchStatus').textContent = 'Shuttle NOT Ready for Launch';
+        document.getElementById('launchStatus').textContent = 'Shuttle not ready for launch';
         document.getElementById('launchStatus').style.color = 'red';
-        document.getElementById('cargoStatus').textContent = `Too much cargo`;
-        document.getElementById('cargoStatus').style.color = 'red';
+        document.getElementById('cargoStatus').textContent = `Cargo mass to high for launch`;
+        // document.getElementById('cargoStatus').style.color = 'red';
         return;
     }    
     else
