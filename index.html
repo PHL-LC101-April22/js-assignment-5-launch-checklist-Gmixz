@@ -3,17 +3,17 @@
     <head>
         <title>Launch Checklist</title>
         <link rel = "stylesheet" type = "text/css" href = "styles.css" />
-        <script src = "scriptHelper.js"></script>
+        <!-- <script src = "scriptHelper.js"></script>s -->
         <script src = "script.js"></script>
         <script src = "bundle.js"></script>
     </head>
     <body>
         <h1>Launch Checklist Form</h1>
         <div id="missionTarget" data-testid="missionTarget">
-            <!-- Fetch some planetary data -->
+            <!-- Fetch some planetary data -->-
         </div>  
         <div id="launchForm">
-            <form data-testid="testForm">
+            <form data-testid="testForm" name="myForm" action ="#" onsubmit="formSubmission(event)">
                 <div class="formField">
                     <label>Pilot Name <input type="text" name="pilotName" id="pilotName"/></label>
                 </div>
